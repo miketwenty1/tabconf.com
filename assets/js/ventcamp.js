@@ -457,13 +457,10 @@ Ventcamp = {
             submitHandler: function (form) {
                 var $input = $(form).find('input[type="submit"]'),
                     $button = $(form).find('button[type="submit"]');
-
                 if ( $button.length ) {
                     $button.append('<span class="loading fa fa-refresh"></span>');
-
                 }else if ( $input ) {
                     $input.after('<span class="loading fa fa-refresh"></span>');
-
                 }
                
                 $.ajax({
@@ -472,14 +469,10 @@ Ventcamp = {
                     data: $(form).serialize()
                 }).done(function(msg) {
                     $(form).find('.loading').remove();
-
                     doneHandler(msg, form);
-
                 }).fail(function() {
                     $(form).find('.loading').remove();
-
                     failHandler(form);
-
                 });
                 
             }
